@@ -1,0 +1,3 @@
+[submodule "modules/puppet-php"]
+	path = modules/puppet-php
+	url = https://github.com/saz/puppet-php.git

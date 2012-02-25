@@ -1,17 +1,8 @@
 # site.pp
 
-import "templates"
-import "nodes"
+include "test"
+include "php"
+include "php::apache"
 
-filebucket { main: server => puppet }
 
-# global defaults
-File { backup => main }
-Exec { path => "/usr/bin:/usr/sbin/:/bin:/sbin" }
 
-Package {
-    provider => $operatingsystem ? {
-        debian => aptitude,
-        redhat => up2date
-    }
-}

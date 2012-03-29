@@ -1,3 +1,9 @@
 [submodule "modules/php"]
 	path = modules/php
 	url = git://github.com/EHER/puppet-php.git
+[submodule "modules/mysql"]
+	path = modules/mysql
+	url = git@github.com:EHER/puppet-mysql.git
+[submodule "modules/vim"]
+	path = modules/vim
+	url = git@github.com:EHER/puppet-vim.git

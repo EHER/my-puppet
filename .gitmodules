@@ -7,3 +7,6 @@
 [submodule "modules/vim"]
 	path = modules/vim
 	url = git@github.com:EHER/puppet-vim.git
+[submodule "modules/apache"]
+	path = modules/apache
+	url = git@github.com:EHER/puppet-module-apache.git

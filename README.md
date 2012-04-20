@@ -1,2 +1,2 @@
 #Não faça isso:
-    curl -L http://bit.ly/HTacyP | sh
+    curl -L http://bit.ly/HYd96Z | sh

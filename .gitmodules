@@ -3,10 +3,10 @@
 	url = git://github.com/EHER/puppet-php.git
 [submodule "modules/mysql"]
 	path = modules/mysql
-	url = git@github.com:EHER/puppet-mysql.git
+	url = git://github.com/EHER/puppet-mysql.git
 [submodule "modules/vim"]
 	path = modules/vim
-	url = git@github.com:EHER/puppet-vim.git
+	url = git://github.com/EHER/puppet-vim.git
 [submodule "modules/apache"]
 	path = modules/apache
-	url = git@github.com:EHER/puppet-module-apache.git
+	url = git://github.com/EHER/puppet-module-apache.git

@@ -5,6 +5,9 @@ include "mysql"
 include "apache"
 include "php"
 include "php::pecl"
+include php::pecl::xdebug
+include php::pecl::gd
+include php::pecl::curl
 
 apache::vhost{[
                 "chegamos.com",

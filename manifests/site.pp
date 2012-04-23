@@ -1,9 +1,10 @@
 # site.pp
 include "test"
-include "php"
 include "vim"
 include "mysql"
 include "apache"
+include "php"
+include "php::pecl"
 
 apache::vhost{[
                 "chegamos.com",

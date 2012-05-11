@@ -7,6 +7,7 @@ include "php"
 include "php::pecl::xdebug"
 include "php::pecl::gd"
 include "php::pecl::curl"
+include "php::pecl::sqlite"
 
 apache::vhost{[
                 "chegamos.com",

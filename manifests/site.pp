@@ -16,6 +16,9 @@ git::repo {"queroservoluntario.com":
     target => '/var/www/queroservoluntario.com',
     source => 'git://github.com/EHER/voluntarios.git'
 }
+exec { "/usr/bin/make install":
+    cwd => "/var/www/queroservoluntario.com"
+}
 
 include "apache"
 apache::vhost{[

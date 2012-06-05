@@ -13,3 +13,6 @@
 [submodule "modules/apt"]
 	path = modules/apt
 	url = git://github.com/EHER/puppet-apt.git
+[submodule "modules/git"]
+	path = modules/git
+	url = git://github.com/EHER/puppet-git.git

@@ -11,6 +11,12 @@ include "php::pecl::gd"
 include "php::pecl::curl"
 include "php::pecl::sqlite"
 
+include "git"
+git::repo {"queroservoluntario.com":
+    target => '/var/www/queroservoluntario.com',
+    source => 'git://github.com/EHER/voluntarios.git'
+}
+
 include "apache"
 apache::vhost{[
                 "chegamos.com",

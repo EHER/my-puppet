@@ -10,7 +10,19 @@ include "php::pecl::sqlite"
 include "git"
 include "apache"
 
-apt::ppa { "ppa:ondrej/php5": }
+package {"libapache2-mod-php5":
+    ensure => "installed"
+}
+
+apache::module {
+    [
+        "php5",
+        "rewrite"
+    ]:
+    ensure => 'present'
+}
+
+apt::ppa {"ppa:ondrej/php5":}
 
 git::repo {"clone dotVim":
     target => '/root/.vim',
@@ -30,16 +42,18 @@ exec {"install queroservoluntario.com":
     cwd => "/var/www/queroservoluntario.com"
 }
 
-apache::vhost{[
-                "chegamos.com",
-                "chegamos.com.br",
-                "m.chegamos.com",
-                "encaixote.me",
-                "eher.com.br",
-                "alexandreeher.com",
-                "skd.com.br",
-                "paginasbrancas.com.br",
-                "queroservoluntario.com"
-            ]:
-            replace => true,
+apache::vhost{
+    [
+        "sismo.eher.com.br",
+        "chegamos.com",
+        "chegamos.com.br",
+        "m.chegamos.com",
+        "encaixote.me",
+        "eher.com.br",
+        "alexandreeher.com",
+        "skd.com.br",
+        "paginasbrancas.com.br",
+        "queroservoluntario.com"
+    ]:
+    replace => true,
 }

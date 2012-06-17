@@ -1,8 +1,5 @@
 # site.pp
 include "apt"
-apt::ppa { "ppa:ondrej/php5": }
-
-include "test"
 include "vim"
 include "mysql"
 include "php"
@@ -10,17 +7,29 @@ include "php::pecl::xdebug"
 include "php::pecl::gd"
 include "php::pecl::curl"
 include "php::pecl::sqlite"
-
 include "git"
-git::repo {"queroservoluntario.com":
+include "apache"
+
+apt::ppa { "ppa:ondrej/php5": }
+
+git::repo {"clone dotVim":
+    target => '/root/.vim',
+    source => 'git://github.com/renanivo/dotvim.git'
+}
+exec {"install dotVim":
+    command => "/usr/bin/make install",
+    cwd => "/root/.vim"
+}
+
+git::repo {"clone queroservoluntario.com":
     target => '/var/www/queroservoluntario.com',
     source => 'git://github.com/EHER/voluntarios.git'
 }
-exec { "/usr/bin/make install":
+exec {"install queroservoluntario.com":
+    command => "/usr/bin/make install",
     cwd => "/var/www/queroservoluntario.com"
 }
 
-include "apache"
 apache::vhost{[
                 "chegamos.com",
                 "chegamos.com.br",
@@ -30,8 +39,7 @@ apache::vhost{[
                 "alexandreeher.com",
                 "skd.com.br",
                 "paginasbrancas.com.br",
-                "queroservoluntario.com",
-                "neuroeducacaosorocaba.com.br"
+                "queroservoluntario.com"
             ]:
             replace => true,
 }

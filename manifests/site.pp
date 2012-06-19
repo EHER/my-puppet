@@ -2,14 +2,7 @@
 
 # apt
 include "apt"
-file {
-    "/etc/apt/sources.list.d/ondrej-php5-precise.list":
-	owner  => "root",
-	group  => "root",
-	mode   => 644,
-	notify => Exec["apt_update"],
-	source => "/etc/puppet/files/apt/sources.list.d/ondrej-php5-precise.list";
-}
+apt::ppa {"ppa:ondrej/php5":}
 
 # php
 package {

@@ -93,3 +93,20 @@ service {
 #        "queroservoluntario.com"
 #    ]:
 
+
+# Build
+
+exec {  	
+    "make-install":
+        cwd => "/var/www/",
+	    path => ["/usr/bin", "/usr/sbin"],
+        command => "make install";
+}
+
+file {
+    "/var/www/Makefile":
+        require => Service["nginx"],
+        notify => Exec["make-install"],
+        source => "/etc/puppet/files/build/Makefile";
+}
+

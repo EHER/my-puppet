@@ -15,15 +15,15 @@ file {
         require => Package["php5-cli"],
         source => "/etc/puppet/files/php5/cli/php.ini";
     "/etc/php5/fpm/php.ini":
-        require => Package["php5-fpmi"],
+        require => Package["php5-fpm"],
         notify => Service["php5-fpm"],
         source => "/etc/puppet/files/php5/fpm/php.ini";
     "/etc/php5/fpm/php-fpm.conf":
-        require => Package["php5-fpmi"],
+        require => Package["php5-fpm"],
         notify => Service["php5-fpm"],
         source => "/etc/puppet/files/php5/fpm/php-fpm.conf";
     "/etc/php5/fpm/pool.d/www.conf":
-        require => Package["php5-fpmi"],
+        require => Package["php5-fpm"],
         notify => Service["php5-fpm"],
         source => "/etc/puppet/files/php5/fpm/pool.d/www.conf";
 }

@@ -47,9 +47,12 @@ file {
     "/etc/nginx/nginx.conf":
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/nginx.conf";
+    "/etc/nginx/fastcgi_params":
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/fastcgi_params";
     "/etc/nginx/conf.d/queroservoluntario.com.conf":
         notify => Service["nginx"],
-        source => "/etc/puppet/files/conf.d/queroservoluntario.conf";
+        source => "/etc/puppet/files/nginx/conf.d/queroservoluntario.com.conf";
 }
 
 service {

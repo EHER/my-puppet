@@ -12,14 +12,18 @@ package {
 
 file {
     "/etc/php5/cli/php.ini":
+        require => Package["php5-cli"],
         source => "/etc/puppet/files/php5/cli/php.ini";
     "/etc/php5/fpm/php.ini":
+        require => Package["php5-fpmi"],
         notify => Service["php5-fpm"],
         source => "/etc/puppet/files/php5/fpm/php.ini";
     "/etc/php5/fpm/php-fpm.conf":
+        require => Package["php5-fpmi"],
         notify => Service["php5-fpm"],
         source => "/etc/puppet/files/php5/fpm/php-fpm.conf";
     "/etc/php5/fpm/pool.d/www.conf":
+        require => Package["php5-fpmi"],
         notify => Service["php5-fpm"],
         source => "/etc/puppet/files/php5/fpm/pool.d/www.conf";
 }
@@ -33,24 +37,25 @@ service {
         require => Package["php5-fpm"];
 }
 
-
-
 # nginx
 package {
     ["nginx"]:
-        ensure=> installed
+        ensure=> installed;
 }
 
 file {
     "/var/www":
         ensure => present;
     "/etc/nginx/nginx.conf":
+        require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/nginx.conf";
     "/etc/nginx/fastcgi_params":
+        require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/fastcgi_params";
     "/etc/nginx/conf.d/queroservoluntario.com.conf":
+        require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/conf.d/queroservoluntario.com.conf";
 }

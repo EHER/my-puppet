@@ -2,12 +2,19 @@
 
 # apt
 include "apt"
-apt::ppa {"ppa:ondrej/php5":}
+file {
+    "/etc/apt/sources.list.d/ondrej-php5-precise.list":
+	owner  => "root",
+	group  => "root",
+	mode   => 644,
+	notify => Exec["apt_update"],
+	source => "/etc/puppet/files/apt/sources.list.d/ondrej-php5-precise.list";
+}
 
 # php
 package {
     ["php5-curl", "php5-fpm", "php5-common", "php5", "php5-cli", "php5-sqlite", "php5-gd", "php5-xdebug"]:
-        ensure=> installed
+        ensure=> "installed"
 }
 
 file {
@@ -32,7 +39,7 @@ service {
     "php5-fmp":
         name => "php5-fpm",
         enable => true,
-        ensure => running,
+        ensure => "running",
         hasrestart => true,
         require => Package["php5-fpm"];
 }
@@ -40,12 +47,15 @@ service {
 # nginx
 package {
     ["nginx"]:
-        ensure=> installed;
+        ensure=> "installed";
 }
 
 file {
     "/var/www":
-        ensure => present;
+        ensure => "directory",
+        owner  => "root",
+        group  => "www-data",
+        mode   => 750;
     "/etc/nginx/nginx.conf":
         require => Package["nginx"],
         notify => Service["nginx"],
@@ -64,7 +74,7 @@ service {
     "nginx":
         name => "nginx",
         enable => true,
-        ensure => running,
+        ensure => "running",
         hasrestart => true,
         require => Package["nginx"];
 }

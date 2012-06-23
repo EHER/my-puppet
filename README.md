@@ -7,4 +7,4 @@
 
 or
 
-    culr -L http://bit.ly/O7vM9U | sh
+    curl -L http://bit.ly/O7vM9U | sh

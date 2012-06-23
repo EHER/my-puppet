@@ -4,3 +4,7 @@
     cd /etc/puppet
     sudo make install
     sudo make apply
+
+or
+
+    culr -L http://bit.ly/O7vM9U | sh

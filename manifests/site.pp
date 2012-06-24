@@ -76,6 +76,10 @@ file {
         require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/conf.d/queroservoluntario.com.conf";
+    "/etc/nginx/conf.d/paginabrancas.com.br.conf":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/conf.d/paginasbrancas.com.br.conf";
     "/etc/nginx/conf.d/eher.com.br.conf":
         require => Package["nginx"],
         notify => Service["nginx"],
@@ -107,5 +111,4 @@ service {
 #    [
 #        "sismo.eher.com.br",
 #        "m.chegamos.com",
-#        "paginasbrancas.com.br",
 #    ]:

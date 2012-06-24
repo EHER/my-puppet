@@ -21,7 +21,7 @@ service {
 
 # php
 package {
-    ["php5-curl", "php5-fpm", "php5-common", "php5", "php5-cli", "php5-sqlite", "php5-mysql", "php5-gd", "php5-xdebug"]:
+    ["php5-curl", "php5-fpm", "php5-common", "php5", "php5-cli", "php5-sqlite", "php5-mysql", "php5-gd"]:
         ensure=> "installed"
 }
 
@@ -80,14 +80,18 @@ file {
         require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/conf.d/eher.com.br.conf";
-    "/etc/nginx/conf.d/chegamos.com.conf":
+    "/etc/nginx/conf.d/skd.com.br.conf":
         require => Package["nginx"],
         notify => Service["nginx"],
-        source => "/etc/puppet/files/nginx/conf.d/chegamos.com.conf";
-    "/etc/nginx/conf.d/chegamos.com.br.conf":
+        source => "/etc/puppet/files/nginx/conf.d/skd.com.br.conf";
+    "/etc/nginx/conf.d/alexandreeher.com.conf":
         require => Package["nginx"],
         notify => Service["nginx"],
-        source => "/etc/puppet/files/nginx/conf.d/chegamos.com.br.conf";
+        source => "/etc/puppet/files/nginx/conf.d/alexandreeher.com.conf";
+    "/etc/nginx/conf.d/encaixote.me.conf":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/conf.d/encaixote.me.conf";
 }
 
 service {
@@ -102,13 +106,6 @@ service {
 
 #    [
 #        "sismo.eher.com.br",
-#        "chegamos.com",
-#        "chegamos.com.br",
 #        "m.chegamos.com",
-#        "encaixote.me",
-#        "eher.com.br",
-#        "alexandreeher.com",
-#        "skd.com.br",
 #        "paginasbrancas.com.br",
-#        "queroservoluntario.com"
 #    ]:

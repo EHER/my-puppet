@@ -97,6 +97,14 @@ file {
         require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/conf.d/encaixote.me.conf";
+    "/etc/nginx/conf.d/chegamos.com.conf":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/conf.d/chegamos.com.conf";
+    "/etc/nginx/conf.d/chegamos.com.br.conf":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/conf.d/chegamos.com.br.conf";
 }
 
 service {

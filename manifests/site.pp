@@ -60,6 +60,7 @@ package {
 
 file {
     "/var/www":
+        notify => Exec["deploy"],
         ensure => "directory",
         owner  => "root",
         group  => "www-data",

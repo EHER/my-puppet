@@ -112,3 +112,42 @@ service {
 #        "sismo.eher.com.br",
 #        "m.chegamos.com",
 #    ]:
+
+# Deploy
+exec {
+    "deploy":
+        require => File["/var/www/Makefile"],
+        command => "/usr/bin/make install",
+        cwd => "/var/www",
+        refreshonly => true;
+}
+
+file {
+    "/var/www/Makefile":
+        require => Service["nginx"],
+        source => "/etc/puppet/files/deploy/Makefile";
+}
+
+# Cron
+cron {
+    "redeploy":
+        command => "cd /var/www; /usr/bin/make update",
+        user => root,
+        minute => '*/5';
+}
+
+# Vim
+file {
+    "/root/.vimrc":
+        owner  => "root",
+        group  => "root",
+        source => "/etc/puppet/files/vim/.vimrc";
+}
+
+# Git
+file {
+    "/root/.gitconfig":
+        owner  => "root",
+        group  => "root",
+        source => "/etc/puppet/files/git/.gitconfig";
+}

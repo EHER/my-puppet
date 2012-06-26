@@ -69,6 +69,10 @@ file {
         require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/nginx.conf";
+    "/etc/nginx/gzip":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/gzip";
     "/etc/nginx/fastcgi_params":
         require => Package["nginx"],
         notify => Service["nginx"],

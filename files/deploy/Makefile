@@ -15,10 +15,10 @@ create-dir:
 	mkdir /var/www/eher.com.br;
 
 download:
-	wget -c -O /var/www/eher.com.br/wordpress.tar.gz http://br.wordpress.org/wordpress-3.4-pt_BR.tar.gz;
+	wget -c -O /var/www/eher.com.br/wordpress.tar.gz http://br.wordpress.org/latest-pt_BR.tar.gz;
 
 extract:
-	cd /var/www/eher.com.br; tar vxfz wordpress.tar.gz; mv wordpress web;
+	cd /var/www/eher.com.br; tar vxfz wordpress.tar.gz;
 
 clone:
 	git clone git://github.com/EHER/voluntarios.git /var/www/queroservoluntario.com;

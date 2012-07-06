@@ -28,6 +28,6 @@ clone:
 
 pull:
 	cd /var/www/queroservoluntario.com; git pull;
-	cd /var/www/chegamos.com; git pull;
-	cd /var/www/chegamos.com.br; git pull;
+	cd /var/www/chegamos.com; git pull; make update
+	cd /var/www/chegamos.com.br; git pull; make update
 	cd /var/www/encaixote.me; git pull;

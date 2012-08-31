@@ -141,14 +141,6 @@ file {
         source => "/etc/puppet/files/deploy/Makefile";
 }
 
-# Cron
-cron {
-    "redeploy":
-        command => "cd /var/www; /usr/bin/make update",
-        user => root,
-        minute => '*/5';
-}
-
 # Vim
 file {
     "/root/.vimrc":

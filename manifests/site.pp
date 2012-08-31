@@ -73,6 +73,10 @@ file {
         require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/gzip";
+    "/etc/nginx/mime.types":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/mime.types";
     "/etc/nginx/fastcgi_params":
         require => Package["nginx"],
         notify => Service["nginx"],

@@ -93,6 +93,10 @@ file {
         require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/conf.d/eher.com.br.conf";
+    "/etc/nginx/conf.d/neuroeducacaosorocaba.com.br.conf":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/conf.d/neuroeducacaosorocaba.com.br.conf";
     "/etc/nginx/conf.d/skd.com.br.conf":
         require => Package["nginx"],
         notify => Service["nginx"],

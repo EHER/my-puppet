@@ -14,6 +14,7 @@ config:
 create-dir:
 	mkdir /var/www/eher.com.br;
 	mkdir /var/www/neuroeducacaosorocaba.com.br;
+	mkdir /var/www/notafiscaldobem.com.br;
 
 download:
 	wget -c -O /var/www/eher.com.br/wordpress.tar.gz http://br.wordpress.org/latest-pt_BR.tar.gz;
@@ -28,6 +29,7 @@ clone:
 	git clone git://github.com/EHER/chegamos.git /var/www/chegamos.com;
 	git clone git://github.com/EHER/chegamos.git /var/www/chegamos.com.br;
 	git clone git://github.com/EHER/encaixote.me.git /var/www/encaixote.me;
+	git clone git://gist.github.com/3974269.git /var/www/notafiscaldobem.com.br/public_html
 
 pull:
 	cd /var/www/queroservoluntario.com; git pull;

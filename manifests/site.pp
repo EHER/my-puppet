@@ -117,6 +117,10 @@ file {
         require => Package["nginx"],
         notify => Service["nginx"],
         source => "/etc/puppet/files/nginx/conf.d/chegamos.com.br.conf";
+    "/etc/nginx/conf.d/notafiscaldobem.com.br.conf":
+        require => Package["nginx"],
+        notify => Service["nginx"],
+        source => "/etc/puppet/files/nginx/conf.d/notafiscaldobem.com.br.conf";
 }
 
 service {

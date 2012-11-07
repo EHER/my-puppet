@@ -138,6 +138,30 @@ service {
 #        "m.chegamos.com",
 #    ]:
 
+# Varnish
+package {
+    "varnish":
+        ensure => "installed";
+}
+
+file {
+    "/etc/varnish/default.vcl":
+        require => Package["varnish"],
+        source => "/etc/puppet/files/varnish/default.vcl";
+    "/etc/default/varnish":
+        require => Package["varnish"],
+        source => "/etc/puppet/files/varnish/varnish";
+}
+
+service {
+    "varnish":
+        require => Package["varnish"],
+        enable => true,
+        ensure => "running",
+        hasrestart => true;
+}
+
+
 # Deploy
 exec {
     "deploy":
